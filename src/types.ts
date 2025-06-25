@@ -77,11 +77,19 @@ export type Context = {
   key: string;
 
   /**
-   * The CUIT to use
+   * The CUIT to use for authentication
    *
    * @var int
    **/
   cuit: number;
+
+  /**
+   * The CUIT to use for represented operations (e.g., billing on behalf of another entity)
+   * If not provided, will use the authentication CUIT
+   *
+   * @var int
+   **/
+  representedCuit?: number;
 
   /**
    * Tokens object if you have one created before

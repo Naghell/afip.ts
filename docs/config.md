@@ -12,7 +12,8 @@ const instancia = new Afip(Contexto);
   - `production` <small>(booleano)</small>: Flag que permite especificar si se utilizarán los servicios de producción o de homologación (pruebas).
   - `cert` <small>\*(cadena)</small>: Contenido del certificado `(.crt)`.
   - `key` <small>\*(cadena)</small>: Contenido de la llave privada.
-  - `cuit` <small>\*(número)</small>: CUIT del usuario que se utilizará.
+  - `cuit` <small>\*(número)</small>: CUIT del usuario que se utilizará para la autenticación.
+  - `representedCuit` <small>(número)</small>: CUIT representado para operaciones delegadas (ej: facturación a nombre de otra persona). Si no se especifica, se usará el CUIT de autenticación.
   - `credentials` <small>(WSAuthTokens)</small>: Un objeto de tipo WSAuthTokens ([Ver](https://github.com/valiulab/afip.ts/blob/main/src/auth/types.ts#L5)). Aquí es donde se asignan los tokens de autenticación si ya se tienen guardados.
   - `handleTicket` <small>(booleano)</small>: Flag que indica si los tickets de autenticación son gestionados automáticamente por el paquete o si serán proporcionados por el desarrollador (más adelante se explicará cómo hacer inicio de sesión y luego pasar los tokens antes de llamar al servicio web deseado). Esto es útil cuando se desea utilizar el paquete en una función `lambda` o en algun lugar que no se tenga almacenamiento.
   - `ticketPath` <small>(cadena)</small>: La ruta preferida donde se desean guardar los tokens obtenidos del servicio WSAA si no se desea utilizar la carpeta predeterminada.
@@ -44,11 +45,19 @@ type Context = {
   key: string;
 
   /**
-   * The CUIT to use
+   * The CUIT to use for authentication
    *
    * @var int
    **/
   cuit: number;
+
+  /**
+   * The CUIT to use for represented operations (e.g., billing on behalf of another entity)
+   * If not provided, will use the authentication CUIT
+   *
+   * @var int
+   **/
+  representedCuit?: number;
 
   /**
    * Tokens object if you have one created before

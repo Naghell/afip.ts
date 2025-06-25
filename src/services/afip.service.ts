@@ -114,6 +114,8 @@ export class AfipService<T extends Client> {
       this._credentials = await this.login();
     }
 
-    return this._credentials.getWSAuthFormat(this.context.cuit);
+    // Use representedCuit if available, otherwise use the authentication cuit
+    const cuitToUse = this.context.representedCuit || this.context.cuit;
+    return this._credentials.getWSAuthFormat(cuitToUse);
   }
 }

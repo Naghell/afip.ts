@@ -29,6 +29,7 @@ export default defineConfig({
           { text: "🎉 Introducción", link: "/introduction" },
           { text: "🚀 Uso basico", link: "/basic-use" },
           { text: "⚙️ Configuración", link: "/config" },
+          { text: "🏢 CUIT Representado", link: "/represented-cuit" },
           { text: "🧐 Comportamiento", link: "/behaviour" },
           {
             text: "☁️ Gestión de Credenciales",
