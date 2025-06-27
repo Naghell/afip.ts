@@ -186,3 +186,7 @@ export interface ICreateVoucherResult {
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface IGetSalesPointsResult extends IFEParamGetPtosVentaOutput { }
+
+// Export billing types
+export { IExportVoucher, ICreateExportVoucherResult } from "./services/export-billing.service";
+export { WsfexSoapTypes } from "./soap/interfaces/WSFEX/WsfexSoap";

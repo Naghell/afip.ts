@@ -12,6 +12,12 @@ export enum EndpointsEnum {
   WSFEV1_TEST = "https://wswhomo.afip.gov.ar/wsfev1/service.asmx",
 
   /**
+   * WS Facturacion Electronica Exportacion
+   **/
+  WSFEXV1 = "https://servicios1.afip.gov.ar/wsfexv1/service.asmx",
+  WSFEXV1_TEST = "https://wswhomo.afip.gov.ar/wsfexv1/service.asmx",
+
+  /**
    * WS Constancia inscripción
    **/
   WSSR_INSCRIPTION_PROOF = "https://aws.afip.gov.ar/sr-padron/webservices/personaServiceA5",

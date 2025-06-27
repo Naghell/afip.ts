@@ -2,6 +2,7 @@ import { resolve } from "path";
 import { Client } from "soap";
 import { AfipService } from "./services/afip.service";
 import { ElectronicBillingService } from "./services/electronic-billing.service";
+import { ExportBillingService } from "./services/export-billing.service";
 import { RegisterInscriptionProofService } from "./services/register-inscription-proof.service";
 import { RegisterScopeFiveService } from "./services/register-scope-five.service";
 import { RegisterScopeFourService } from "./services/register-scope-four.service";
@@ -11,6 +12,7 @@ import { Context, AfipServiceSoapParam } from "./types";
 
 export class Afip {
   private readonly _electronicBillingService: ElectronicBillingService;
+  private readonly _exportBillingService: ExportBillingService;
   private readonly _registerInscriptionProofService: RegisterInscriptionProofService;
   private readonly _registerScopeFourService: RegisterScopeFourService;
   private readonly _registerScopeFiveService: RegisterScopeFiveService;
@@ -25,6 +27,7 @@ export class Afip {
     };
 
     this._electronicBillingService = new ElectronicBillingService(this.context);
+    this._exportBillingService = new ExportBillingService(this.context);
     this._registerInscriptionProofService = new RegisterInscriptionProofService(this.context);
     this._registerScopeFourService = new RegisterScopeFourService(this.context);
     this._registerScopeFiveService = new RegisterScopeFiveService(this.context);
@@ -36,6 +39,10 @@ export class Afip {
 
   get electronicBillingService(): ElectronicBillingService {
     return this._electronicBillingService;
+  }
+
+  get exportBillingService(): ExportBillingService {
+    return this._exportBillingService;
   }
 
   get registerInscriptionProofService(): RegisterInscriptionProofService {
